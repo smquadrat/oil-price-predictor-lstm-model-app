@@ -1,0 +1,21 @@
+.title {
+    text-align: center;
+}
+
+.chart-container {
+    width: 100%;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-title {
+    margin-top: 0px; /* Remove top margin */
+}
+
+.plot {
+    width: 100%;
+    height: 800px; /* Increase height to vertically stretch the upper chart */
+    margin-bottom: -50px; /* Remove white space between charts */
+}
