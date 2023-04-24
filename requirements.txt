@@ -1,5 +1,4 @@
 Flask==2.2.3
-numpy==1.24.3
 plotly==5.8.0
 python_dateutil==2.8.2
 requests==2.27.1
