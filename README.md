@@ -3,7 +3,7 @@
 **Disclaimer: the information in this repository is for educational purposes only**
 
 ## Overview
-This Flask-based web application employs a long short-term memory (LSTM) recurrent neural network (RNN) model to forecast crude oil prices for the next year. The app fetches historical price data based on the OPEC Crude Oil Basket from the Nasdaq Data Link API and stores it in a SQL database using SQLAlchemy. The LSTM model runs on PyTorch, and the resulting predictions are visualized using Plotly charts. The primary chart highlights key data points such as the highest, lowest, and average oil prices for the predicted period while the secondary chart shows all historical price data from the start of 2003 along with the predicted period. This app may enable users to gain insight into where oil prices could trend going forward.
+This Flask app employs a long short-term memory (LSTM) recurrent neural network (RNN) model to forecast crude oil prices for the next year. The app fetches historical price data based on the OPEC Crude Oil Basket from the Nasdaq Data Link API and stores it in a SQL database using SQLAlchemy. The LSTM model runs on PyTorch, and the resulting predictions are visualized using Plotly charts. The primary chart highlights key data points such as the highest, lowest, and average oil prices for the predicted period while the secondary chart shows all historical price data from the start of 2003 along with the predicted period. This app may enable users to gain insight into where oil prices could trend going forward.
 
 **LSTM Model Default Parameters:**
 - Model trained using mean squared error loss and the Adam optimizer
