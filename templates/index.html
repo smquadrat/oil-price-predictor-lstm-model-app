@@ -6,7 +6,11 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1 class="title">LSTM Oil Price Model Output</h1>
+    <div class="img-container">
+        <img src="{{ url_for('static', filename='oil-well.png') }}" alt="oil well" width="80" height="40">
+        <h1 class="title">LSTM Oil Price Model Output</h1>
+    </div>
+    <br>
     <div class="chart-container">
         <h2 class="chart-title">Last 2 Years + 1 Year Prediction</h2>
         <div class="plot">{{ plot_html1|safe }}</div>

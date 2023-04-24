@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from plotly.subplots import make_subplots
 import requests
+import os
 import numpy as np
 from datetime import datetime
 from dateutil.relativedelta import relativedelta # added import
@@ -11,8 +12,10 @@ import plotly.graph_objs as go # added import
 from models import engine, OilPrices, Base
 from datetime import datetime, timedelta
 from lstm_model import lstm_predict_next_year_prices
+from dotenv import load_dotenv
 
-API_KEY = 'hUQjsf7FJt9zxRejSMjm'
+load_dotenv()
+API_KEY = os.getenv('API_KEY')
 
 app = Flask(__name__)
 
@@ -98,7 +101,7 @@ def home():
     # UPPER CHART
 
     # create traces for the historical and predicted prices
-    historical_trace = go.Scatter(x=dates[-1095:], y=prices[-1095:], mode='lines', name='Historical Prices', line=dict(color='blue'))
+    historical_trace = go.Scatter(x=dates[-730:], y=prices[-730:], mode='lines', name='Historical Prices', line=dict(color='blue'))
     predicted_trace = go.Scatter(x=next_year_dates[:365], y=next_year_prices[:365], mode='lines', name='Predicted Prices', line=dict(color='red'))
 
     # get the highest, lowest and average points from predicted prices
@@ -119,11 +122,16 @@ def home():
     fig1.add_trace(lowest_trace, row=1, col=1)
     fig1.add_trace(average_trace, row=1, col=1)
 
-    fig1.update_layout(autosize=False, xaxis_title='Date', yaxis_title='Price (USD/bbl)', width=1200, height=1200, margin=go.layout.Margin(
+    fig1.update_layout(autosize=False, xaxis_title='Date', yaxis_title='Price (USD/bbl)', width=1200, height=1600, margin=go.layout.Margin(
         l=0, #left margin
         r=0, #right margin
         b=0, #bottom margin
         t=0, #top margin
+    ), legend=dict(
+    yanchor="top",
+    y=0.99,
+    xanchor="left",
+    x=0.01
     ))
 
     # LOWER CHART
@@ -142,6 +150,11 @@ def home():
         r=0, #right margin
         b=0, #bottom margin
         t=0, #top margin
+    ), legend=dict(
+    yanchor="top",
+    y=0.99,
+    xanchor="left",
+    x=0.01
     ))
 
     session.close()

@@ -132,6 +132,6 @@ def lstm_predict_next_year_prices():
 
     session.close()
 
-    print(next_year_prices)
+    # print(next_year_prices)
 
     return next_year_prices
